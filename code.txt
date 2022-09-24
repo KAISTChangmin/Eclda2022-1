@@ -1,0 +1,74 @@
+#변수 설정 (line 5~18)
+
+#csv 파일 읽어서 list로 변환 (line 23~30)
+
+#전역 변수 설정: 프로그램 전반에 필요한 변수들을 설정한다. (line 35~40)
+
+
+
+#City class 정의 (line 44~60)
+class City(id):
+    attribute
+    -id:     City의 id
+    -name:   City의 이름
+    -x:      City 위치의 x좌표
+    -y:      City 위치의 y좌표
+    -star:   City의 별점 (네이버 플레이스 기준)
+    -review: City의 리뷰 수 (네이버 플레이스 방문자 리뷰 + 블로그 리뷰 기준)
+    -people: City의 평균 방문자 수 (1: 매우 적음, 2: 적음, 3: 보통, 4: 많음, 5: 매우 많음)
+    -price:  City의 입장료 혹은 이용료
+    -res:    City의 음식점 여부 (0: 음식점이 아님, 1: 음식점임)
+    
+    method
+    -distance(city):   City와 city의 거리
+
+
+
+#Route class 정의 (line 64~192)
+class Route(idlist):
+    -만약 idlist가 주어지지 않는다면 랜덤으로 결정된다.
+
+    attribute
+    -idlist:   Route가 지나는 City들의 id 리스트
+    -size:     Route가 지나는 City들의 개수
+    -distance: Route의 총 이동 거리
+    -star:     Route가 지나는 City들의 별점 평균
+    -review:   Route가 지나는 City들의 리뷰 수 평균
+    -people:   Route가 지나는 City들의 방문자 수 평균
+    -price:    Route가 지나는 City들의 입장료 총합
+
+    method
+    -consec_res():       Route에 음식적이 3개 연달아 나오는지 여부
+    -fitness():          Route의 fitness (연구자가 설정)
+    -crossover(route):   Route와 route를 교차하여 나온 자식
+    -mutate():           Route를 변이시켜 나온 자식
+    -graph():            Route를 그린다.
+
+
+
+#Population class 정의 (line 196~292)
+class Population(routelist):
+    -만약 routelist가 주어지지 않는다면 랜덤으로 결정된다.
+
+    attribute
+    -routelist:   Population에 속해 있는 Route들의 리스트
+    -fitlist:     Population에 속해 있는 Route들의 fitness 리스트
+    -fitsum:      Population에 속해 있는 Route들의 fitness를 모두 더한 값
+    -roulette:    룰렛 휠 선택에서 필요한 Population의 룰렛
+    -elitepop:    Population에서 fitness가 높은 Route들로 만든 부분집합
+    -elite:       Population에서 fitness가 가장 높은 Route
+    
+    method
+    -selection():         Population에서 룰렛 휠 선택으로 선택한 Route
+    -nextgeneration():    Population의 다음 세대 집단
+    -plotroute():         (1) Population을 제 0세대로 하여 유전 알고리즘을 실행한다.
+                          (2) 가장 높은 fitness를 갖는 Route의 그림 파일을 저장한다.
+                          (3) 가장 높은 fitness를 갖는 Route와 그 fitness를 출력한다.
+    -plotgraph():         generation - highest fitness 그래프 그림 파일을 저장한다.
+
+
+
+#실제 실행 코드 (line 296~298)
+pop = Population()   #제 0세대 population 생성
+pop.plotroute()      #route 그림 그리기
+pop.plotgraph()      #graph 그림 그리기

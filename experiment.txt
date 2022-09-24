@@ -1,0 +1,31 @@
+1. minsize = 30, 적합도 함수: (1000 / self.distance) ** 2
+실험 3회 진행, 그 결과가 모두 다름 보이기. (최종 루트 그림 result_jeju_route.png 만 비교)
+-> 같은 조건으로 실험을 진행해도 매번 달라질 수 있다.
+exp1끼리의 비교
+
+2. minsize = 30, 적합도 함수: (1000 / self.distance) ** 2
+실험 3회 진행,
+최고의 fitness 보이는 실험을 골라서
+gen 0~최종까지 50세대마다 그림 저장
+-> gen이 지날 수록 높은 적합도로 수렴한다 (gen 그림들과 result_jeju_graph.png)
+exp2끼리의 비교
+
+3. minsize = 10, 적합도 함수: fitness = (1000 / self.distance) ** 2
+실험 3회 진행,
+최고의 fitness 보이는 실험을 골라서
+그래프, 루트 그림 비교 (result_jeju_route.png, result_jeju_graph.png)
+-> 변수가 달라지면 다른 결과가 나올 수 있다
+exp2 vs exp3
+
+4. minsize = 10, 적합도 함수: fitness = ((self.star - 3) * self.review) / (self.distance * self.people * (self.price / 10000 + 1))
+실험 3회 진행,
+최고의 fitness 보이는 실험을 골라서
+그래프, 루트 그림 비교 (result_jeju_route.png, result_jeju_graph.png)
+-> 적합도 함수가 달라지면 다른 결과가 나올 수 있다.
+exp3 vs exp4
+
+
+1. Imagecoordinate jpg -> csv
+2. Places csv -> png
+3. Project_fixedstart csv -> result
+
